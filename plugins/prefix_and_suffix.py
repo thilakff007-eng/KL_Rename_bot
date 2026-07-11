@@ -1,13 +1,6 @@
-# (c) @RknDeveloperr
-# Rkn Developer 
-# Don't Remove Credit 😔
-# Telegram Channel @RknDeveloper & @Rkn_Botz
-# Developer @RknDeveloperr
-# Special Thanks To @ReshamOwner
-# Update Channel @Digital_Botz & @DigitalBotz_Support
 """
 Apache License 2.0
-Copyright (c) 2022 @Digital_Botz
+Copyright (c) 2022 @your_channel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +17,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Telegram Link : https://t.me/Digital_Botz 
-Repo Link : https://github.com/DigitalBotz/Digital-Rename-Bot
-License Link : https://github.com/DigitalBotz/Digital-Rename-Bot/blob/main/LICENSE
+Telegram Link : https://t.me/your_channel
+Repo Link : https://github.com/Rename-Bot
+License Link : https://github.com/Rename-Bot/blob/main/LICENSE
 """
 
 # imports
@@ -37,7 +30,7 @@ from helper.database import digital_botz
 @Client.on_message(filters.private & filters.command('set_prefix'))
 async def add_prefix(client, message):
     if len(message.command) == 1:
-        return await message.reply_text("**__Give The Prefix__\n\nExᴀᴍᴩʟᴇ:- `/set_prefix @Rkn_Bots_Updates`**")
+        return await message.reply_text("**__Give The Prefix__\n\nExᴀᴍᴩʟᴇ:- `/set_prefix @your_channel`**")
     prefix = message.text.split(" ", 1)[1]
     RknDev = await message.reply_text("Please Wait ...", reply_to_message_id=message.id)
     await digital_botz.set_prefix(message.from_user.id, prefix)
@@ -65,7 +58,7 @@ async def see_prefix(client, message):
 @Client.on_message(filters.private & filters.command('set_suffix'))
 async def add_suffix(client, message):
     if len(message.command) == 1:
-        return await message.reply_text("**__Give The Suffix__\n\nExᴀᴍᴩʟᴇ:- `/set_suffix @Rkn_Bots_Updates`**")
+        return await message.reply_text("**__Give The Suffix__\n\nExᴀᴍᴩʟᴇ:- `/set_suffix @your_channel`**")
     suffix = message.text.split(" ", 1)[1]
     RknDev = await message.reply_text("Please Wait ...", reply_to_message_id=message.id)
     await digital_botz.set_suffix(message.from_user.id, suffix)
@@ -89,9 +82,3 @@ async def see_suffix(client, message):
     else:
         await RknDev.edit("__**😔 ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ꜱᴜꜰꜰɪx**__")
 
-# Rkn Developer 
-# Don't Remove Credit 😔
-# Telegram Channel @RknDeveloper & @Rkn_Botz
-# Developer @RknDeveloperr
-# Special Thanks To @ReshamOwner
-# Update Channel @Digital_Botz & @DigitalBotz_Support
