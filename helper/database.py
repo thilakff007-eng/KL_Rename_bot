@@ -1,28 +1,8 @@
-
-"""
-Apache License 2.0
-Copyright (c) 2022 @your_channel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Telegram Link : https://t.me/your_channel
-Repo Link : https://github.com/Rename-Bot
-License Link : https://github.com/Rename-Bot/blob/main/LICENSE
-"""
-
+#========================================================================
+# Don't Remove Credit Tg - @TDBotDevZ
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@TDBotDev
+# Ask Doubt on Telegram https://t.me/TDBotDevZ
+#========================================================================
 # database imports
 import motor.motor_asyncio, datetime, pytz
 
@@ -50,9 +30,12 @@ class Database:
             uploadlimit=Config.FREE_UPLOAD_LIMIT,
             daily=0,
             metadata_mode=False,
-            metadata_code="--change-title @your_channel\n--change-video-title @your_channel\n--change-audio-title @your_channel\n--change-subtitle-title @your_channel\n--change-author @your_channel",
+            metadata_code="--change-title @TDBotDevZ\n--change-video-title @TDBotDevZ\n--change-audio-title @TDBotDevZ\n--change-subtitle-title @TDBotDevZ\n--change-author @TDBotDevZ",
             expiry_time=None,
             has_free_trial=False,
+            rename_format=None,
+            file_mode="document",
+            upload_mode="video",
             ban_status=dict(
                 is_banned=False,
                 ban_duration=0,
@@ -283,6 +266,15 @@ class Database:
     async def get_all_banned_users(self):
         banned_users = self.col.find({'ban_status.is_banned': True})
         return banned_users
+
+    async def set_user_setting(self, user_id, key, value):
+        await self.col.update_one({'_id': int(user_id)}, {'$set': {key: value}})
+
+    async def get_user_setting(self, user_id, key, default=None):
+        user = await self.col.find_one({'_id': int(user_id)})
+        if user:
+            return user.get(key, default)
+        return default
         
 digital_botz = Database(Config.DB_URL, Config.DB_NAME)
 

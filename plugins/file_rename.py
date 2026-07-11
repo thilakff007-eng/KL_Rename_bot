@@ -1,27 +1,8 @@
-"""
-Apache License 2.0
-Copyright (c) 2022 @your_channel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Telegram Link : https://t.me/your_channel
-Repo Link : https://github.com/Rename-Bot
-License Link : https://github.com/Rename-Bot/blob/main/LICENSE
-"""
-
+#========================================================================
+# Don't Remove Credit Tg - @TDBotDevZ
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@TDBotDev
+# Ask Doubt on Telegram https://t.me/TDBotDevZ
+#========================================================================
 # pyrogram imports
 from pyrogram import Client, filters
 from pyrogram.enums import MessageMediaType
@@ -209,13 +190,21 @@ async def upload_doc(bot, update):
     new_filename_ = new_name.split(":-")[1]
     user_data = await digital_botz.get_user_data(user_id)
 
+    # Apply custom rename format if configured
+    rename_format = user_data.get('rename_format', None)
+    if rename_format:
+        if "{filename}" in rename_format:
+            new_filename_ = rename_format.format(filename=new_filename_)
+        else:
+            new_filename_ = f"{rename_format} {new_filename_}"
+
     try:
         # adding prefix and suffix
         prefix = user_data.get('prefix', None)
         suffix = user_data.get('suffix', None)
         new_filename = await add_prefix_suffix(new_filename_, prefix, suffix)
     except Exception as e:
-        return await rkn_processing.edit(f"⚠️ Something went wrong can't able to set Prefix or Suffix ☹️ \n\n❄️ Contact My Creator -> @your_devr\nError: {e}")
+        return await rkn_processing.edit(f"⚠️ Something went wrong can't able to set Prefix or Suffix ☹️ \n\n❄️ Contact My Creator -> @TDBotDevZ\nError: {e}")
 
     # msg file location 
     file = update.message.reply_to_message
@@ -303,6 +292,10 @@ async def upload_doc(bot, update):
              ph_path = None
 
     upload_type = update.data.split("#")[1]
+    # Integrate user-configured upload_mode or file_mode if set
+    pref_mode = user_data.get('upload_mode') or user_data.get('file_mode')
+    if pref_mode and pref_mode in ["document", "video", "audio"]:
+        upload_type = pref_mode
     
     # Use the correct file path based on metadata mode
     final_file_path = metadata_path if metadata_mode and os.path.exists(metadata_path) else file_path

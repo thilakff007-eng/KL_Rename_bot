@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+BotLog.txt
+*.log
+/home/jules/self_created_tools/
+/home/jules/verification/
+banned-users.txt

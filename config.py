@@ -1,27 +1,8 @@
-"""
-Apache License 2.0
-Copyright (c) 2022 @your_channel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Telegram Link : https://t.me/your_channel
-Repo Link : https://github.com/Rename-Bot
-License Link : https://github.com/Rename-Bot/blob/main/LICENSE
-"""
-
+#========================================================================
+# Don't Remove Credit Tg - @TDBotDevZ
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@TDBotDev
+# Ask Doubt on Telegram https://t.me/TDBotDevZ
+#========================================================================
 import re, os, time
 id_pattern = re.compile(r'^.\d+$') 
 
@@ -54,7 +35,7 @@ class Config(object):
     try:
         FORCE_SUB = int(os.environ.get("FORCE_SUB", "")) 
     except:
-        FORCE_SUB = os.environ.get("FORCE_SUB", "Digital_Botz")
+        FORCE_SUB = os.environ.get("FORCE_SUB", "TDBotDevZ")
         
     # wes response configuration     
     PORT = int(os.environ.get("PORT", "8080"))
@@ -69,7 +50,7 @@ class rkn(object):
 𝚈ᴏᴜ 𝙲ᴀɴ 𝙰ʟsᴏ 𝙲ᴏɴᴠᴇʀᴛ 𝚅ɪᴅᴇᴏ 𝚃ᴏ 𝙵ɪʟᴇ & 𝙵ɪʟᴇ 𝚃ᴏ 𝚅ɪᴅᴇᴏ
 𝚃𝙷𝙸𝚂 𝙱𝙾𝚃 𝙰𝙻𝚂𝙾 𝚂𝚄𝙿𝙿𝙾𝚁𝚃𝚂 𝙲𝚄𝚂𝚃𝙾𝙼 𝚃𝙷𝚄𝙼𝙱𝙽𝙰𝙸𝙻 𝙰𝙽𝙳 𝙲𝚄𝚂𝚃𝙾𝙼 𝙲𝙰𝙿𝚃𝙸𝙾𝙽
 
-Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @your_channel 💞</b>"""
+Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @TDBotDevZ 💞</b>"""
 
     ABOUT_TXT = """<b>╭───────────⍟
 ├🤖 ᴍy ɴᴀᴍᴇ : {}
@@ -78,7 +59,7 @@ Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @your_channel 💞</b>"""
 ├📕 Lɪʙʀᴀʀy : {}
 ├✏️ Lᴀɴɢᴜᴀɢᴇ: {}
 ├💾 Dᴀᴛᴀ Bᴀꜱᴇ: {}
-├📊 ᴠᴇʀsɪᴏɴ: <a href=https://github.com/Rename-Bot>{}</a></b>
+├📊 ᴠᴇʀsɪᴏɴ: <a href=https://t.me/TDBotDevZ>{}</a></b>
 ╰───────────────⍟ """
 
     HELP_TXT = """
@@ -86,7 +67,7 @@ Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @your_channel 💞</b>"""
 
 ✏️ <b><u>Hᴏᴡ Tᴏ Rᴇɴᴀᴍᴇ A Fɪʟᴇ</u></b>
 <b>•></b> Sᴇɴᴅ Aɴy Fɪʟᴇ Aɴᴅ Tyᴩᴇ Nᴇᴡ Fɪʟᴇ Nɴᴀᴍᴇ \nAɴᴅ Aᴇʟᴇᴄᴛ Tʜᴇ Fᴏʀᴍᴀᴛ [ document, video, audio ].           
-ℹ️ 𝗔𝗻𝘆 𝗢𝘁𝗵𝗲𝗿 𝗛𝗲𝗹𝗽 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 :- <a href=https://t.me/your_support>𝑺𝑼𝑷𝑷𝑶𝑹𝑻 𝑮𝑹𝑶𝑼𝑷</a>
+ℹ️ 𝗔𝗻𝘆 𝗢𝘁𝗵𝗲𝗿 𝗛𝗲𝗹𝗽 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 :- <a href=https://t.me/TDBotDevZ>𝑺𝑼𝑷𝑷𝑶𝑹𝑻 𝑮𝑹𝑶𝑼𝑷</a>
 """
 
     UPGRADE_PREMIUM= """
@@ -162,13 +143,13 @@ V𝟹.𝟶.𝟶 [STABLE]
 
 ☞ Fᴏʀ Exᴀᴍᴘʟᴇ:-
 
-`--change-title @your_channel
---change-video-title @your_channel
---change-audio-title @your_channel
---change-subtitle-title @your_channel
---change-author @your_channel`
+`--change-title @TDBotDevZ
+--change-video-title @TDBotDevZ
+--change-audio-title @TDBotDevZ
+--change-subtitle-title @TDBotDevZ
+--change-author @TDBotDevZ`
 
-📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @your_channel
+📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @TDBotDevZ
 """
     
     CUSTOM_FILE_NAME = """
@@ -183,33 +164,28 @@ you can pre-add a prefix and suffix along with your new filename
 ➢ /see_suffix - Tᴏ Sᴇᴇ Yᴏᴜʀ Sᴜғғɪx !!
 ➢ /del_suffix - Tᴏ Dᴇʟᴇᴛᴇ Yᴏᴜʀ Sᴜғғɪx !!
 
-Exᴀᴍᴩʟᴇ:- `/set_suffix @your_channel`
-Exᴀᴍᴩʟᴇ:- `/set_prefix @your_channel`
+Exᴀᴍᴩʟᴇ:- `/set_suffix @TDBotDevZ`
+Exᴀᴍᴩʟᴇ:- `/set_prefix @TDBotDevZ`
 """
     
-    #⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-    # ᴡʜᴏᴇᴠᴇʀ ɪs ᴅᴇᴘʟᴏʏɪɴɢ ᴛʜɪs ʀᴇᴘᴏ ɪs ᴡᴀʀɴᴇᴅ ⚠️ ᴅᴏ ɴᴏᴛ ʀᴇᴍᴏᴠᴇ ᴄʀᴇᴅɪᴛs ɢɪᴠᴇɴ ɪɴ ᴛʜɪs ʀᴇᴘᴏ #ғɪʀsᴛ ᴀɴᴅ ʟᴀsᴛ ᴡᴀʀɴɪɴɢ ⚠️
     DEV_TXT = """<b><u>Sᴩᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ & Dᴇᴠᴇʟᴏᴩᴇʀꜱ</b></u>
     
-» 𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘 : <a href=https://github.com/Rename-Bot>Rename-Bot</a>
+» 𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘 : <a href=https://t.me/TDBotDevZ>@TDBotDevZ</a>
 
-• ❣️ <a href=https://github.com/Developer>Developer</a>
-• ❣️ <a href=https://github.com>DigitalBotz</a>
-• ❣️ <a href=https://github.com>Developer</a> """
-    # ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+• ❣️ <a href=https://t.me/TDBotDevZ>@TDBotDevZ</a> """
 
     SEND_METADATA = """
 ❪ SET CUSTOM METADATA ❫
 
 ☞ Fᴏʀ Exᴀᴍᴘʟᴇ:-
 
-`--change-title @your_channel
---change-video-title @your_channel
---change-audio-title @your_channel
---change-subtitle-title @your_channel
---change-author @your_channel`
+`--change-title @TDBotDevZ
+--change-video-title @TDBotDevZ
+--change-audio-title @TDBotDevZ
+--change-subtitle-title @TDBotDevZ
+--change-author @TDBotDevZ`
 
-📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @your_channel
+📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @TDBotDevZ
 """
     
     RKN_PROGRESS = """<b>
