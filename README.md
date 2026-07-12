@@ -35,7 +35,9 @@ A powerful Telegram Rename Bot with Premium Features, Metadata, Auto Rename, Thu
 
 ### Deploy to Render
 
-
+<a href="https://render.com/deploy">
+  <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
+</a>
 
 ### Deploy to Koyeb
 
