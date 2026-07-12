@@ -22,6 +22,7 @@ except ImportError:
         ListenerTimeout = asyncio.TimeoutError
 from helper.database import digital_botz
 from config import Config
+from helper.utils import humanbytes
 
 logger = logging.getLogger(__name__)
 
@@ -98,7 +99,23 @@ async def show_settings_main(client: Client, chat_id, user_id, is_callback=True,
         await digital_botz.add_user(client, query)
         user_data = default_doc
 
-    text = "⚙️ **Dynamic Settings Menu**\n\nConfigure your custom options dynamically below:"
+    plan_type, max_upload_size, expiry_time = await digital_botz.get_premium_plan_and_limit(user_id)
+    remaining_days = "N/A"
+    if expiry_time:
+        delta = expiry_time - datetime.datetime.now()
+        if delta.total_seconds() > 0:
+            remaining_days = f"{delta.days}d {delta.seconds // 3600}h"
+        else:
+            remaining_days = "Expired"
+
+    text = (
+        "⚙️ **Modern Settings & Profile Panel**\n\n"
+        f"👤 **User ID:** `{user_id}`\n"
+        f"💎 **Premium Plan:** `{plan_type}`\n"
+        f"📂 **Single Upload Limit:** `{humanbytes(max_upload_size)}`\n"
+        f"⏳ **Remaining Time:** `{remaining_days}`\n\n"
+        "Configure your custom options dynamically below:"
+    )
 
     keyboard = []
 

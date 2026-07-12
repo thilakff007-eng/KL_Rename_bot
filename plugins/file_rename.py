@@ -42,17 +42,33 @@ async def rename_start(client, message):
     dcid = FileId.decode(td_file.file_id).dc_id
     extension_type = mime_type.split('/')[0]
 
-    if client.premium and client.uploadlimit:
+    # Fetch user plan and limits dynamically
+    plan_type, max_upload_size, expiry_time = await digital_botz.get_premium_plan_and_limit(user_id)
+    if not client.premium:
+        plan_type = "Free"
+
+    # PREMIUM FEATURES SINGLE FILE SIZE CHECK
+    if plan_type == "Pro":
+        if td_file.file_size > 2 * 1024 * 1024 * 1024: # 2GB
+            return await message.reply_text("⚠ Upgrade to UltraPro for files larger than 2GB.")
+    elif plan_type == "UltraPro":
+        if td_file.file_size > 4 * 1024 * 1024 * 1024: # 4GB
+            return await message.reply_text("⚠ UltraPro supports files up to 4GB.")
+    else: # Free user
+        if td_file.file_size > 2 * 1024 * 1024 * 1024: # 2GB limit for free
+            return await message.reply_text("⚠ Free plan only supports files up to 2GB. Please upgrade to Pro or UltraPro. /plans")
+
+    if client.premium and client.uploadlimit and plan_type != "Free":
         await digital_botz.reset_uploadlimit_access(user_id)
         user_data = await digital_botz.get_user_data(user_id)
-        limit = user_data.get('uploadlimit', 0)
-        used = user_data.get('used_limit', 0)
+        limit = user_data.get('uploadlimit', 0) if user_data else max_upload_size
+        used = user_data.get('used_limit', 0) if user_data else 0
         remain = int(limit) - int(used)
-        used_percentage = int(used) / int(limit) * 100
+        used_percentage = (int(used) / int(limit) * 100) if int(limit) > 0 else 0
         if remain < int(td_file.file_size):
             return await message.reply_text(f"{used_percentage:.2f}% Of Daily Upload Limit {humanbytes(limit)}.\n\n Media Size: {filesize}\n Your Used Daily Limit {humanbytes(used)}\n\nYou have only **{humanbytes(remain)}** Data.\nPlease, Buy Premium Plan s.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🪪 Uᴘɢʀᴀᴅᴇ", callback_data="plans")]]))
          
-    if await digital_botz.has_premium_access(user_id) and client.premium:
+    if plan_type != "Free" and client.premium:
         if not Config.STRING_SESSION:
             if td_file.file_size > 2000 * 1024 * 1024:
                  return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
@@ -74,9 +90,6 @@ async def rename_start(client, message):
         except Exception as e:
             print(f"Error in rename_start: {e}")
     else:
-        if td_file.file_size > 2000 * 1024 * 1024 and client.premium:
-            return await message.reply_text("If you want to rename 4GB+ files then you will have to buy premium. /plans")
-
         try:
             await message.reply_text(
                 text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",

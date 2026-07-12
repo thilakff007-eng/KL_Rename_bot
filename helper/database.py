@@ -151,61 +151,97 @@ class Database:
         return user_data or None
         
     async def get_user(self, user_id):
-        user_data = await self.premium.find_one({"id": user_id})
+        user_data = await self.premium.find_one({"id": int(user_id)})
         return user_data
 
     async def add_premium(self, user_id, user_data, limit=None, type=None):    
         await self.premium.update_one(
-            {"id": user_id}, 
+            {"id": int(user_id)},
             {"$set": user_data}, 
             upsert=True
         )
         
-        if Config.UPLOAD_LIMIT_MODE and limit and type:
-            await self.col.update_one(
-                {'_id': user_id}, 
-                {'$set': {
-                    'usertype': type,
-                    'uploadlimit': limit
-                }}
-            )
+        # Ensure we set in user general col as well
+        await self.col.update_one(
+            {'_id': int(user_id)},
+            {'$set': {
+                'usertype': type or user_data.get("plan_type", "Pro"),
+                'uploadlimit': limit or user_data.get("max_upload_size", 2147483648)
+            }},
+            upsert=True
+        )
+
+    # Alias to prevent any AttributeError
+    async def addpremium(self, user_id, user_data, limit=None, type=None):
+        await self.add_premium(user_id, user_data, limit, type)
     
     async def remove_premium(self, user_id, limit=Config.FREE_UPLOAD_LIMIT, type="Free"):
-        await self.premium.update_one(
-            {"id": user_id}, 
-            {"$set": {
-                "expiry_time": None,
-                "has_free_trial": False
+        # Delete or clear premium record
+        await self.premium.delete_many({"id": int(user_id)})
+
+        await self.col.update_one(
+            {'_id': int(user_id)},
+            {'$set': {
+                'usertype': type,
+                'uploadlimit': limit
             }}
         )
-        
-        if Config.UPLOAD_LIMIT_MODE and limit and type:
-            await self.col.update_one(
-                {'_id': user_id}, 
-                {'$set': {
-                    'usertype': type,
-                    'uploadlimit': limit
-                }}
-            )
+
+    # Alias to prevent any AttributeError
+    async def removepremium(self, user_id, limit=Config.FREE_UPLOAD_LIMIT, type="Free"):
+        await self.remove_premium(user_id, limit, type)
           
     async def checking_remaining_time(self, user_id):
         user_data = await self.get_user(user_id)
+        if not user_data:
+            return datetime.timedelta(0)
         expiry_time = user_data.get("expiry_time")
+        if not expiry_time:
+            return datetime.timedelta(0)
         time_left_str = expiry_time - datetime.datetime.now()
         return time_left_str
 
     async def has_premium_access(self, user_id):
+        plan_type, max_upload_size, expiry_time = await self.get_premium_plan_and_limit(user_id)
+        return plan_type != "Free"
+
+    async def get_premium_plan_and_limit(self, user_id):
         user_data = await self.get_user(user_id)
-        if user_data:
-            expiry_time = user_data.get("expiry_time")
-            if expiry_time is None:
-                # User previously used the free trial, but it has ended.
-                return False
-            elif isinstance(expiry_time, datetime.datetime) and datetime.datetime.now() <= expiry_time:
-                return True
-            else:
-                await self.remove_premium(user_id)
-        return False
+        if not user_data:
+            return "Free", Config.FREE_UPLOAD_LIMIT, None
+
+        expiry_time = user_data.get("expiry_time")
+        if isinstance(expiry_time, datetime.datetime) and datetime.datetime.now() > expiry_time:
+            # Subscription expired
+            await self.remove_premium(user_id)
+            return "Free", Config.FREE_UPLOAD_LIMIT, None
+
+        plan_type = user_data.get("plan_type")
+        if not plan_type:
+            # Automatically migrate legacy premium users
+            plan_type = "Pro"
+            max_upload_size = 2147483648 # 2GB bytes
+            await self.premium.update_one(
+                {"id": int(user_id)},
+                {"$set": {
+                    "plan_type": plan_type,
+                    "max_upload_size": max_upload_size,
+                    "start_time": user_data.get("start_time") or datetime.datetime.now(),
+                    "duration": user_data.get("duration") or "Custom",
+                    "created_by": user_data.get("created_by") or "System/Migration"
+                }}
+            )
+            await self.col.update_one(
+                {'_id': int(user_id)},
+                {'$set': {
+                    'usertype': plan_type,
+                    'uploadlimit': max_upload_size
+                }}
+            )
+            return plan_type, max_upload_size, expiry_time
+
+        max_upload_size = user_data.get("max_upload_size", 2147483648)
+        return plan_type, max_upload_size, expiry_time
 
     async def total_premium_users_count(self):
         count = await self.premium.count_documents({"expiry_time": {"$gt": datetime.datetime.now()}})
