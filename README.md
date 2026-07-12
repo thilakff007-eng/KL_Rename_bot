@@ -1,127 +1,161 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠+𝗧𝗢+𝗧𝗗+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!;𝗖𝗥𝗘𝗔𝗧𝗘𝗗+𝗕𝗬+𝗧𝗗𝗕𝗼𝘁𝗗𝗲𝘃 🇮🇳!;𝗜+𝗔𝗠+𝗣𝗢𝗪𝗘𝗥𝗙𝗨𝗟+𝗧𝗚+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!&color=4169E1)
+![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠+𝗧𝗢+𝗧𝗗+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!;𝗖𝗥𝗘𝗔𝗧𝗘𝗗+𝗕𝗬+𝗧𝗗𝗕𝗼𝘁𝗗𝗲𝘃+🇮🇳;𝗣𝗢𝗪𝗘𝗥𝗙𝗨𝗟+𝗔𝗨𝗧𝗢+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!&color=4169E1)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-
 <p align="center">
-  <img src="https://telegra.ph/file/b746aadfe59959eb76f59.jpg" alt="RKN RENAME BOT V3">
+  <img src="YOUR_BOT_IMAGE_URL" width="600">
 </p>
 
 <p align="center">
 
-![Fork](https://img.shields.io/github/forks/DigitalBotz/Digital-Rename-Bot?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/DigitalBotz/Digital-Rename-Bot?color=%23&style=for-the-badge)
-![License](https://img.shields.io/github/license/DigitalBotz/Digital-Rename-Bot?style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/DigitalBotz/Digital-Rename-Bot?style=for-the-badge)
+![Fork](https://img.shields.io/github/forks/TDBotDev/TD-Rename-Bot?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/TDBotDev/TD-Rename-Bot?style=for-the-badge)
+![License](https://img.shields.io/github/license/TDBotDev/TD-Rename-Bot?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/TDBotDev/TD-Rename-Bot?style=for-the-badge)
 
 </p>
 
+# 🤖 TD Rename Bot
 
-### Sᴀᴍᴩʟᴇ Bᴏᴛ (Official Digital Rename Bot)
+A powerful Telegram Rename Bot with Premium Features, Metadata, Auto Rename, Thumbnail Support, Force Subscribe, Broadcast, Admin Panel, and much more.
 
-* [Rkn_RenameBot](http://t.me/Rkn_RenameBot)
-* [Digital_Rename_Bot](http://t.me/Digital_Rename_Bot)
+---
 
+## 🌐 Official Links
 
-## Deploy Me 🥀
+- Telegram : https://t.me/TDBotDevZ
+- YouTube : https://youtube.com/@TDBotDev
+- GitHub : https://github.com/TDBotDev
 
-<details><summary>📌 Deploy to Koyeb </summary>
-  
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/RknDeveloper/Digital-Rename-Bot&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[WEBHOOK]=True&env[ADMIN]&env[DB_URL]&env[DB_NAME]=Rkn-Developer&env[FORCE_SUB]&env[START_PIC]&env[LOG_CHANNEL]=You%20Dont%20Need%20LogChannel%20To%20Remove%20This%20Variable&run_command=python%20bot.py&branch=main&name=rkn-rename) 
-</details>
+---
 
-<details><summary>📌 Deploy to Render </summary>
-  
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/DigitalBotz/Digital-Rename-Bot)
+# 🚀 Deploy
 
-</details>
+### Deploy to Render
 
-<details><summary>📌 Deploy To Railway </summary>
-<a href="https://graph.org/file/fabd75cd5043d2cfdc13d.jpg"><img src="https://railway.app/button.svg" alt="Deploy"></a>
-</details>
+Coming Soon
 
-<details><summary>📌 Deploy to Heroku </summary>
+### Deploy to Koyeb
 
-<a href="https://heroku.com/deploy?template=https://github.com/DigitalBotz/Digital-Rename-Bot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"></p></a>
-</details>
+Coming Soon
 
-## Rᴇǫᴜɪʀᴇᴅ Cᴏɴғɪɢs
+### Deploy to Railway
 
-* `BOT_TOKEN`  - Get Bot Token From @BotFather
-* `API_ID` - From my.telegram.org
-* `API_HASH` - From my.telegram.org
-* `ADMIN` - AUTH Or Bot Controllers Id's Multiple Id Use Space To Split 
-* `DB_URL`  - Mongo Database URL From https://cloud.mongodb.com
-* `DB_NAME`  - Your Database Name From Mongodb.
-* `FORCE_SUB` - Your Force Sub Channel Username Without @
-* `LOG_CHANNEL` - Bot Logs Sending Channel. If You Don't Need This To Remove This Variable In Your Server
-* `STRING_SESSION` - Your Tg Premium Account String Session Required. `[Note :- If you remove the string session, 4GB files doesn't works on the bot.]`
+Coming Soon
 
-## 🥰 Features
+### Deploy to Heroku
 
-* Renames very fast .
-* Permanent Thumbnail support.
-* Force join for the user for use.
-* Supports Broadcasts.
-* Custom File Name Support...[Prefix_&_Suffix]
-* Set custom caption.
-* Has a custom Start-up pic.
-* Force subscribe available.
-* Supports ulimited renaming at a time.
-* Custom Metadata Support.
-* Admin Command Available.
-* premium subscription available.
-* premium trial available.
-* handle ban/unban members using command.
-* Deploy to Koyeb + Heroku + Railway + Render.
-* Developer Service 24x7. 🔥
+Coming Soon
 
+---
 
-## Botfather Commands
+# ⚙ Required Variables
+
+- BOT_TOKEN
+- API_ID
+- API_HASH
+- MONGO_URI
+- DB_NAME
+- ADMIN
+- FORCE_SUB
+- LOG_CHANNEL
+- STRING_SESSION
+
+---
+
+# ✨ Features
+
+- Fast Rename
+- Permanent Thumbnail
+- Custom Caption
+- Prefix & Suffix
+- Metadata Support
+- Auto Rename
+- Force Subscribe
+- Broadcast
+- Premium Plans
+- Admin Panel
+- Ban / Unban
+- Statistics
+- Upload as Video
+- Upload as Document
+- Batch Rename
+- Auto Settings
+- Mongo Database
+- 4GB File Support
+- Multi User Support
+
+---
+
+# 🤖 Bot Commands
+
+```text
+start
+plans
+myplan
+
+view_thumb
+del_thumb
+
+set_caption
+see_caption
+del_caption
+
+metadata
+
+set_prefix
+see_prefix
+del_prefix
+
+set_suffix
+see_suffix
+del_suffix
+
+settings
+
+restart
+broadcast
+logs
+status
+
+addpremium
+remove_premium
+
+ban
+unban
+banned_users
 ```
-start - 𝖈ʜᴇᴄᴋ 𝖎 𝖆ᴍ ʟɪᴠᴇ.
-plans - ᴜᴘɢʀᴀᴅᴇ ᴛᴏ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ.
-myplan - ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ ʜᴇʀᴇ.
-view_thumb - 𝖙ᴏ 𝖘ᴇᴇ 𝖞ᴏᴜʀ 𝖈ᴜ𝖘ᴛᴏᴍ 𝖙ʜᴜᴍʙɴᴀɪʟ !!
-del_thumb - 𝖙ᴏ 𝖉ᴇʟᴇᴛᴇ 𝖞ᴏᴜʀ 𝖈ᴜ𝖘ᴛᴏᴍ 𝖙ʜᴜᴍʙɴᴀɪʟ !!
-set_caption - Sᴇᴛ A Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!
-see_caption - Sᴇᴇ Yᴏᴜʀ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!
-del_caption - Dᴇʟᴇᴛᴇ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!
-metadata - Tᴏ Sᴇᴛ & Cʜᴀɴɢᴇ ʏᴏᴜʀ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ
-set_prefix - Tᴏ Sᴇᴛ Yᴏᴜʀ Pʀᴇғɪx !!
-see_prefix - Tᴏ Sᴇᴇ Yᴏᴜʀ Pʀᴇғɪx !!
-del_prefix - Dᴇʟᴇᴛᴇ Yᴏᴜʀ Pʀᴇғɪx !!
-set_suffix - Tᴏ Sᴇᴛ Yᴏᴜʀ Sᴜғғɪx !!
-see_suffix - Tᴏ Sᴇᴇ Yᴏᴜʀ Sᴜғғɪx !!
-del_suffix - Dᴇʟᴇᴛᴇ Yᴏᴜʀ Sᴜғғɪx !!
-restart - ᴛᴏ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ sᴇɴᴅ ᴍᴇssᴀɢᴇ ᴀʟʟ ᴅʙ ᴜsᴇʀs (Aᴅᴍɪɴ Oɴʟʏ)
-addpremium - ᴀᴅᴅ ᴘʀᴇᴍɪᴜᴍ (Aᴅᴍɪɴ Oɴʟʏ)
-remove_premium - ʀᴇᴍᴏᴠᴇ ᴘʀᴇᴍɪᴜᴍ (Aᴅᴍɪɴ Oɴʟʏ)
-ban - ban members using command (admin only)
-unban - unban members using command (admin only)
-banned_users - check bot all ban users using command (admin only)
-logs - ᴄʜᴇᴄᴋ ʙᴏᴛ ʟᴏɢs (Aᴅᴍɪɴ Oɴʟʏ)
-status - Cʜᴇᴄᴋ Bᴏᴛ Sᴛᴀᴛᴜs (Aᴅᴍɪɴ Oɴʟʏ)
-broadcast - Sᴇɴᴅ Mᴇssᴀɢᴇ Tᴏ Aʟʟ Usᴇʀs (Aᴅᴍɪɴ Oɴʟʏ)
+
+---
+
+# ❤️ Credits
+
+```
+Developer : TDBotDev
+
+Telegram :
+https://t.me/TDBotDevZ
+
+YouTube :
+https://youtube.com/@TDBotDev
 ```
 
-## Note:
+---
 
-- Please, Just Fork The Repo And Edit As Per Your Needs. # Don't Remove My Credit.
-- ᴅᴏ ɴᴏᴛ ʀᴇᴍᴏᴠᴇ ᴄʀᴇᴅɪᴛs ɢɪᴠᴇɴ ɪɴ ᴛʜɪs ʀᴇᴘᴏ.
-- Importing this repo instead of forking is strictly prohibited, Kindly fork and edit as your wish. Must Give Credits for developer(s)
-- If you find any bugs or errors, [report](https://t.me/DigitalBotz_Support) it
+# 📜 License
 
-## ❣️ Special Thanks 👍
+Apache License 2.0
 
-- Thanks To RknDeveloper For His Awesome [File-Rename-Bot](https://github.com/RknDeveloper/File-Rename-Bot.git)
-- Thanks To [RknDeveloper](https://github.com/RknDeveloper) who have edited and modified this repo as now it is. (It's me 😂)
-- Thanks To [JayMahakal](https://github.com/JayMahakal98) who have edited and modified this repo as now it is.
-- Thanks To Rkn Developer Teams ✅ (Edit & New Feature Added)
-- Special Repo Owner Thanks To [Digital Botz](https://github.com/DigitalBotz) 🥲
+---
 
-## Last Updated
-- `22-11-2025 12:15:30 AM`
-- 
+# ⭐ Support
+
+If you like this project don't forget to Star the repository.
+
+Telegram
+https://t.me/TDBotDevZ
+
+YouTube
+https://youtube.com/@TDBotDev
