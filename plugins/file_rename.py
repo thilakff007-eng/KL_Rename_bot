@@ -45,12 +45,8 @@ async def rename_start(client, message):
     # CENTRALIZED USER UPLOAD LIMIT CHECK (AUTOMATICALLY DETECTS PLAN / OWNER STATUS)
     user_upload_limit = await digital_botz.get_user_upload_limit(user_id)
     if td_file.file_size > user_upload_limit:
-        if user_upload_limit == Config.FREE_UPLOAD_LIMIT or user_upload_limit == Config.PRO_UPLOAD_LIMIT:
-            return await message.reply_text("⚠ Upgrade to UltraPro for files larger than 2GB.")
-        elif user_upload_limit == Config.ULTRAPRO_UPLOAD_LIMIT:
-            return await message.reply_text("⚠ UltraPro supports files up to 4GB.")
-        else:
-            return await message.reply_text("⚠ This file exceeds the maximum allowed upload limit of 6GB.")
+        limit_msg = await digital_botz.get_upload_limit_message(user_id)
+        return await message.reply_text(limit_msg)
 
     # Fetch user plan and limits dynamically for daily upload limits
     plan_type, max_upload_size, expiry_time = await digital_botz.get_premium_plan_and_limit(user_id)
@@ -70,7 +66,7 @@ async def rename_start(client, message):
     if plan_type != "Free" and client.premium:
         if not Config.STRING_SESSION:
             if td_file.file_size > Config.FREE_UPLOAD_LIMIT:
-                 return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
+                 return await message.reply_text("⚠ This bot doesn't support uploading files larger than 2GB without a Premium String Session.")
 
         try:
             await message.reply_text(

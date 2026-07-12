@@ -330,6 +330,21 @@ class Database:
             return Config.ULTRAPRO_UPLOAD_LIMIT
         else:
             return Config.FREE_UPLOAD_LIMIT
+
+    async def get_upload_limit_message(self, user_id):
+        """
+        Generate dynamic upload size limit warnings based on detected plan
+        """
+        if int(user_id) in Config.ADMIN:
+            return "⚠ Your current upload limit is 6GB."
+
+        plan_type, max_upload_size, expiry_time = await self.get_premium_plan_and_limit(user_id)
+        if plan_type == "Pro":
+            return "⚠ Your current plan supports uploads up to 2GB."
+        elif plan_type == "UltraPro":
+            return "⚠ Your current plan supports uploads up to 4GB."
+        else:
+            return "⚠ Sorry! Free users can upload files up to 2GB only."
         
 digital_botz = Database(Config.DB_URL, Config.DB_NAME)
 

@@ -170,30 +170,62 @@ async def _banned_users(_, m: Message):
     await m.reply_text(reply_text, True)
 
      
-@Client.on_message(filters.command("broadcast") & filters.user(Config.ADMIN) & filters.reply)
+@Client.on_message(filters.command("broadcast") & filters.user(Config.ADMIN))
 async def broadcast_handler(bot: Client, m: Message):
-    await bot.send_message(Config.LOG_CHANNEL, f"{m.from_user.mention} or {m.from_user.id} Iꜱ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ Bʀᴏᴀᴅᴄᴀꜱᴛ......")
+    if not m.reply_to_message:
+        return await m.reply_text("💡 **Usage:** Reply to any message with `/broadcast` to send it to all database users.")
+
+    await bot.send_message(Config.LOG_CHANNEL, f"{m.from_user.mention} ({m.from_user.id}) started the broadcast...")
     all_users = await digital_botz.get_all_users()
     broadcast_msg = m.reply_to_message
-    sts_msg = await m.reply_text("Bʀᴏᴀᴅᴄᴀꜱᴛ Sᴛᴀʀᴛᴇᴅ..!") 
+    sts_msg = await m.reply_text("📢 **Broadcast Started...!**")
     done = 0
     failed = 0
     success = 0
+    blocked = 0
+    deleted = 0
     start_time = time.time()
     total_users = await digital_botz.total_users_count()
+
     async for user in all_users:
         sts = await send_msg(user['_id'], broadcast_msg)
         if sts == 200:
-           success += 1
+            success += 1
+        elif sts == 401:
+            deleted += 1
+            await digital_botz.delete_user(user['_id'])
+        elif sts == 402:
+            blocked += 1
+            await digital_botz.delete_user(user['_id'])
         else:
-           failed += 1
-        if sts == 400:
-           await digital_botz.delete_user(user['_id'])
+            failed += 1
         done += 1
         if not done % 20:
-           await sts_msg.edit(f"Bʀᴏᴀᴅᴄᴀꜱᴛ Iɴ Pʀᴏɢʀᴇꜱꜱ: \nTᴏᴛᴀʟ Uꜱᴇʀꜱ {total_users} \nCᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nSᴜᴄᴄᴇꜱꜱ: {success}\nFᴀɪʟᴇᴅ: {failed}")
+            try:
+                await sts_msg.edit(
+                    f"📢 **Broadcast In Progress:**\n\n"
+                    f"👥 **Total Users:** `{total_users}`\n"
+                    f"✨ **Processed:** `{done} / {total_users}`\n"
+                    f"🟢 **Success:** `{success}`\n"
+                    f"🔴 **Failed:** `{failed}`\n"
+                    f"🚫 **Blocked:** `{blocked}`\n"
+                    f"❌ **Deleted:** `{deleted}`"
+                )
+            except FloodWait as e:
+                await asyncio.sleep(e.value)
+            except Exception:
+                pass
+
     completed_in = datetime.timedelta(seconds=int(time.time() - start_time))
-    await sts_msg.edit(f"Bʀᴏᴀᴅᴄᴀꜱᴛ Cᴏᴍᴩʟᴇᴛᴇᴅ: \nCᴏᴍᴩʟᴇᴛᴇᴅ Iɴ `{completed_in}`.\n\nTᴏᴛᴀʟ Uꜱᴇʀꜱ {total_users}\nCᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nSᴜᴄᴄᴇꜱꜱ: {success}\nFᴀɪʟᴇᴅ: {failed}")
+    await sts_msg.edit(
+        "✅ **Broadcast Completed**\n\n"
+        f"⏱️ **Time Taken:** `{completed_in}`\n"
+        f"👥 **Total Users:** `{total_users}`\n"
+        f"🟢 **Success:** `{success}`\n"
+        f"🔴 **Failed:** `{failed}`\n"
+        f"🚫 **Blocked:** `{blocked}`\n"
+        f"❌ **Deleted:** `{deleted}`"
+    )
            
 async def send_msg(user_id, message):
     try:
@@ -201,16 +233,16 @@ async def send_msg(user_id, message):
         return 200
     except FloodWait as e:
         await asyncio.sleep(e.value)
-        return send_msg(user_id, message)
+        return await send_msg(user_id, message)
     except InputUserDeactivated:
-        logger.info(f"{user_id} : Dᴇᴀᴄᴛɪᴠᴀᴛᴇᴅ")
-        return 400
+        logger.info(f"{user_id} : Deactivated")
+        return 401
     except UserIsBlocked:
-        logger.info(f"{user_id} : Bʟᴏᴄᴋᴇᴅ Tʜᴇ Bᴏᴛ")
-        return 400
+        logger.info(f"{user_id} : Blocked the Bot")
+        return 402
     except PeerIdInvalid:
-        logger.info(f"{user_id} : Uꜱᴇʀ Iᴅ Iɴᴠᴀʟɪᴅ")
-        return 400
+        logger.info(f"{user_id} : User ID Invalid")
+        return 403
     except Exception as e:
         logger.error(f"{user_id} : {e}")
         return 500

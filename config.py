@@ -32,22 +32,30 @@ class Config(object):
     OWNER_UPLOAD_LIMIT = 6442450944     # Owner/Admin (6 GiB)
 
     BOT_COMMANDS = [
-        ("start", "Start the bot 🚀"),
-        ("settings", "Configure bot settings ⚙️"),
-        ("myplan", "View active subscription status 📊"),
-        ("plans", "Check premium plans 💸"),
-        ("metadata", "Manage custom metadata ❪ SET ❫"),
-        ("set_prefix", "Add custom prefix 🖋️"),
-        ("see_prefix", "View prefix 🔍"),
-        ("del_prefix", "Delete prefix ❌"),
-        ("set_suffix", "Add custom suffix 🖋️"),
-        ("see_suffix", "View suffix 🔍"),
-        ("del_suffix", "Delete suffix ❌"),
-        ("set_caption", "Set custom caption 📑"),
-        ("see_caption", "View custom caption 🔍"),
-        ("del_caption", "Delete custom caption ❌"),
-        ("view_thumb", "View current thumbnail 🌌"),
-        ("del_thumb", "Delete current thumbnail ❌")
+        ("start", "𝖈ʜᴇᴄᴋ 𝖎 𝖆ᴍ ʟɪᴠᴇ."),
+        ("plans", "ᴜᴘɢʀᴀᴅᴇ ᴛᴏ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ."),
+        ("myplan", "ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ ʜᴇʀᴇ."),
+        ("view_thumb", "𝖙ᴏ 𝖘ᴇᴇ 𝖞ᴏᴜʀ 𝖈ᴜ𝖘ᴛᴏᴍ 𝖙ʜᴜᴍʙɴᴀɪʟ !!"),
+        ("del_thumb", "𝖙ᴏ 𝖉ᴇʟᴇᴛᴇ 𝖞ᴏᴜʀ 𝖈ᴜ𝖘ᴛᴏᴍ 𝖙ʜᴜᴍʙɴᴀɪʟ !!"),
+        ("set_caption", "Sᴇᴛ A Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!"),
+        ("see_caption", "Sᴇᴇ Yᴏᴜʀ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!"),
+        ("del_caption", "Dᴇʟᴇᴛᴇ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ !!"),
+        ("metadata", "Tᴏ Sᴇᴛ & Cʜᴀɴɢᴇ ʏᴏᴜʀ ᴍᴇᴛᴀᴅᴀᴛᴀ ᴄᴏᴅᴇ"),
+        ("set_prefix", "Tᴏ Sᴇᴛ Yᴏᴜʀ Pʀᴇғɪx !!"),
+        ("see_prefix", "Tᴏ Sᴇᴇ Yᴏᴜʀ Pʀᴇғɪx !!"),
+        ("del_prefix", "Dᴇʟᴇᴛᴇ Yᴏᴜʀ Pʀᴇғɪx !!"),
+        ("set_suffix", "Tᴏ Sᴇᴛ Yᴏᴜʀ Sᴜғғɪx !!"),
+        ("see_suffix", "Tᴏ Sᴇᴇ Yᴏᴜʀ Sᴜғғɪx !!"),
+        ("del_suffix", "Dᴇʟᴇᴛᴇ Yᴏᴜʀ Sᴜғғɪx !!"),
+        ("restart", "ᴛᴏ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ sᴇɴᴅ ᴍᴇssᴀɢᴇ ᴀʟʟ ᴅʙ ᴜsᴇʀs (Aᴅᴍɪɴ Oɴʟʏ)"),
+        ("addpremium", "ᴀᴅᴅ ᴘʀᴇᴍɪᴜᴍ (Aᴅᴍɪɴ Oɴʟʏ)"),
+        ("remove_premium", "ʀᴇᴍᴏᴠᴇ ᴘʀᴇᴍɪᴜᴍ (Aᴅᴍɪɴ Oɴʟʏ)"),
+        ("ban", "ban members using command (admin only)"),
+        ("unban", "unban members using command (admin only)"),
+        ("banned_users", "check bot all ban users using command (admin only)"),
+        ("logs", "ᴄʜᴇᴄᴋ ʙᴏᴛ ʟᴏɢs (Aᴅᴍɪɴ Oɴʟʏ)"),
+        ("status", "Cʜᴇᴄᴋ Bᴏᴛ Sᴛᴀᴛᴜs (Aᴅᴍɪɴ Oɴʟʏ)"),
+        ("broadcast", "Sᴇɴᴅ Mᴇssᴀɢᴇ Tᴏ Aʟʟ Usᴇʀs (Aᴅᴍɪɴ Oɴʟʏ)")
     ]
 
     # premium mode feature ✅
