@@ -15,9 +15,14 @@ from pyrogram.types import (
     Message,
     CallbackQuery,
     InlineKeyboardButton,
-    InlineKeyboardMarkup
+    InlineKeyboardMarkup,
+    ForceReply
 )
-from pyrogram.errors import ListenerTimeout, MessageNotModified
+from pyrogram.errors import MessageNotModified
+try:
+    from pyromod.exceptions import ListenerTimeout
+except ImportError:
+    ListenerTimeout = asyncio.TimeoutError
 
 from config import Config, td
 from helper.database import digital_botz
@@ -83,7 +88,7 @@ def parse_duration(duration_str: str):
 @Client.on_message(filters.command(["addpremium", "add_premium"]) & filters.user(Config.ADMIN))
 async def cmd_add_premium(client: Client, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("💡 **Usage:** `/addpremium <user_id>`")
+        return await message.reply_text("💡 **Usage:** /addpremium `<user_id>`")
 
     try:
         user_id = int(message.command[1])
@@ -241,7 +246,7 @@ async def cb_add_premium_save(client: Client, query: CallbackQuery):
 @Client.on_message(filters.command(["removepremium", "remove_premium"]) & filters.user(Config.ADMIN))
 async def cmd_remove_premium(client: Client, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("💡 **Usage:** `/removepremium <user_id>`")
+        return await message.reply_text("💡 **Usage:** /removepremium `<user_id>`")
 
     try:
         user_id = int(message.command[1])
@@ -293,7 +298,7 @@ async def cb_remove_premium_confirm(client: Client, query: CallbackQuery):
 @Client.on_message(filters.command("premiuminfo") & filters.user(Config.ADMIN))
 async def cmd_premium_info(client: Client, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("💡 **Usage:** `/premiuminfo <user_id>`")
+        return await message.reply_text("💡 **Usage:** /premiuminfo `<user_id>`")
 
     try:
         user_id = int(message.command[1])
@@ -467,7 +472,7 @@ async def cb_admin_panel_dispatcher(client: Client, query: CallbackQuery):
                 timeout=60
             )
             target_id = int(target_response.text)
-            await add_premium_flow(client, query.message, target_id)
+            await add_premium_flow(client, target_response, target_id)
         except ListenerTimeout:
             await client.send_message(query.message.chat.id, "⏳ **Request timed out.**")
         except ValueError:
@@ -483,7 +488,7 @@ async def cb_admin_panel_dispatcher(client: Client, query: CallbackQuery):
                 timeout=60
             )
             target_id = int(target_response.text)
-            await remove_premium_flow(client, query.message, target_id)
+            await remove_premium_flow(client, target_response, target_id)
         except ListenerTimeout:
             await client.send_message(query.message.chat.id, "⏳ **Request timed out.**")
         except ValueError:
