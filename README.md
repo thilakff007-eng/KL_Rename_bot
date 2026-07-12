@@ -35,11 +35,11 @@ A powerful Telegram Rename Bot with Premium Features, Metadata, Auto Rename, Thu
 
 ### Deploy to Render
 
-Coming Soon
+
 
 ### Deploy to Koyeb
 
-Coming Soon
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?...)
 
 ### Deploy to Railway
 
