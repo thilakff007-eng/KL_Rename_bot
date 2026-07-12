@@ -27,6 +27,25 @@ class Config(object):
     # free upload limit 
     FREE_UPLOAD_LIMIT = 6442450944 # calculation 6*1024*1024*1024=results
 
+    BOT_COMMANDS = [
+        ("start", "Start the bot 🚀"),
+        ("settings", "Configure bot settings ⚙️"),
+        ("myplan", "View active subscription status 📊"),
+        ("plans", "Check premium plans 💸"),
+        ("metadata", "Manage custom metadata ❪ SET ❫"),
+        ("set_prefix", "Add custom prefix 🖋️"),
+        ("see_prefix", "View prefix 🔍"),
+        ("del_prefix", "Delete prefix ❌"),
+        ("set_suffix", "Add custom suffix 🖋️"),
+        ("see_suffix", "View suffix 🔍"),
+        ("del_suffix", "Delete suffix ❌"),
+        ("set_caption", "Set custom caption 📑"),
+        ("see_caption", "View custom caption 🔍"),
+        ("del_caption", "Delete custom caption ❌"),
+        ("view_thumb", "View current thumbnail 🌌"),
+        ("del_thumb", "Delete current thumbnail ❌")
+    ]
+
     # premium mode feature ✅
     UPLOAD_LIMIT_MODE = True 
     PREMIUM_MODE = True 

@@ -54,6 +54,15 @@ class RenameBot(Client):
         self.uploadlimit = Config.UPLOAD_LIMIT_MODE
         Config.BOT = self
         
+        # Auto set bot commands from Config
+        try:
+            from pyrogram.types import BotCommand
+            commands = [BotCommand(cmd, desc) for cmd, desc in Config.BOT_COMMANDS]
+            await self.set_bot_commands(commands)
+            print("Successfully set bot commands! ✅")
+        except Exception as e:
+            print(f"Error setting bot commands: {e}")
+
         app = aiohttp.web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
