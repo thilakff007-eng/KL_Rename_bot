@@ -45,11 +45,14 @@ A powerful Telegram Rename Bot with Premium Features, Metadata, Auto Rename, Thu
 
 ### Deploy to Railway
 
-Coming Soon
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic)
 
 ### Deploy to Heroku
 
-Coming Soon
+<a href="https://www.heroku.com/deploy?template=https://github.com/heroku/nodejs-getting-started">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
+
 
 ---
 
