@@ -2,7 +2,7 @@
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠+𝗧𝗢+𝗧𝗗+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!;𝗖𝗥𝗘𝗔𝗧𝗘𝗗+𝗕𝗬+𝗧𝗗𝗕𝗼𝘁𝗗𝗲𝘃+🇮🇳;𝗣𝗢𝗪𝗘𝗥𝗙𝗨𝗟+𝗔𝗨𝗧𝗢+𝗥𝗘𝗡𝗔𝗠𝗘+𝗕𝗢𝗧!&color=4169E1)
 
-<img src="https://files.catbox.moe/z7ami7.jpg">
+<img src="https://files.catbox.moe/71abc2.png">
 
 <p align="center">
   <img src="YOUR_BOT_IMAGE_URL" width="600">
