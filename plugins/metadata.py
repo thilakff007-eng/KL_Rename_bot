@@ -18,7 +18,7 @@ except ImportError:
 
 # extra imports
 from helper.database import digital_botz
-from config import rkn
+from config import td
 
 TRUE = [[InlineKeyboardButton('ᴍᴇᴛᴀᴅᴀᴛᴀ ᴏɴ', callback_data='metadata_1'),
        InlineKeyboardButton('✅', callback_data='metadata_1')
@@ -32,11 +32,11 @@ FALSE = [[InlineKeyboardButton('ᴍᴇᴛᴀᴅᴀᴛᴀ ᴏғғ', callback_data
 
 @Client.on_message(filters.private & filters.command('metadata'))
 async def handle_metadata(bot: Client, message: Message):
-    RknDev = await message.reply_text("**Please Wait...**", reply_to_message_id=message.id)
+    TdDev = await message.reply_text("**Please Wait...**", reply_to_message_id=message.id)
     bool_metadata = await digital_botz.get_metadata_mode(message.from_user.id)
     user_metadata = await digital_botz.get_metadata_code(message.from_user.id)
 
-    await RknDev.edit(
+    await TdDev.edit(
         f"Your Current Metadata:-\n\n➜ `{user_metadata}`",
         reply_markup=InlineKeyboardMarkup(TRUE if bool_metadata else FALSE)
     )
@@ -55,10 +55,10 @@ async def query_metadata(bot: Client, query: CallbackQuery):
     elif data == 'cutom_metadata':
         await query.message.delete()
         try:
-            metadata = await bot.ask(text=rkn.SEND_METADATA, chat_id=query.from_user.id, filters=filters.text, timeout=30, disable_web_page_preview=True)
-            RknDev = await query.message.reply_text("**Please Wait...**", reply_to_message_id=metadata.id)
+            metadata = await bot.ask(text=td.SEND_METADATA, chat_id=query.from_user.id, filters=filters.text, timeout=30, disable_web_page_preview=True)
+            TdDev = await query.message.reply_text("**Please Wait...**", reply_to_message_id=metadata.id)
             await digital_botz.set_metadata_code(query.from_user.id, metadata_code=metadata.text)
-            await RknDev.edit("**Your Metadata Code Set Successfully ✅**")
+            await TdDev.edit("**Your Metadata Code Set Successfully ✅**")
         except ListenerTimeout:
             await query.message.reply_text("⚠️ Error!!\n\n**Request timed out.**\nRestart by using /metadata", reply_to_message_id=query.message.id)
         except Exception as e:

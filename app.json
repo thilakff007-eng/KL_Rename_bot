@@ -38,7 +38,7 @@
             "value": "Rename_Bot",
             "required": false
         },
-        "RKN_PIC": {
+        "TD_PIC": {
             "description": "Your Bot start cmd Pic",
             "value": "https://telegra.ph/file/b746aadfe59959eb76f59.jpg",
             "required": false

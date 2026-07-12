@@ -20,7 +20,8 @@ class Config(object):
     DB_URL = os.environ.get("DB_URL","mongodb+srv://tdanimehub_db_user:cPdMT253KSZpE11Z@helper.wallqjf.mongodb.net/?retryWrites=true&w=majority&appName=Helper")
  
     # other configs
-    START_PIC = os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg")
+    TD_PIC = os.environ.get("TD_PIC", os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg"))
+    START_PIC = TD_PIC
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6705898491').split()]
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002123429361"))
 
@@ -60,7 +61,7 @@ class Config(object):
     PORT = int(os.environ.get("PORT", "8080"))
     BOT_UPTIME = time.time()
 
-class start(object):
+class TD(object):
     # part of text configuration
     START_TXT = """<b>Ｈ𝙰𝙸, {}👋
 
@@ -207,15 +208,18 @@ Exᴀᴍᴩʟᴇ:- `/set_prefix @TDBotDevZ`
 📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @TDBotDevZ
 """
     
-    FILE_PROGRESS = """<b>
+    TD_PROGRESS = """<b>
 ╭━━━━━━━━◉🚀◉━━━━━━━━╮
-┃   𝗙𝗜𝗟𝗘 𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚...❱━➣  
+┃   𝗧𝗗 𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚...❱━➣
 ┣━━━━━━━━━━━━━━━━━━━━╯
 ┣⪼ 📦 𝗦𝗜𝗭𝗘: {1} | {2}
 ┣⪼ 📊 𝗗𝗢𝗡𝗘: {0}%
 ┣⪼ 🚀 𝗦𝗣𝗘𝗘𝗗: {3}/s
 ┣⪼ ⏰ 𝗘𝗧𝗔: {4}
 ╰━━━━━━━━◉🔥◉━━━━━━━━╯</b>"""
+    FILE_PROGRESS = TD_PROGRESS
+
+td = TD()
 
 #========================================================================
 # Don't Remove Credit Tg - @TDBotDev

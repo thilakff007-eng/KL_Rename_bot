@@ -5,7 +5,7 @@
 #========================================================================
 # extra imports
 import math, time, re, datetime, pytz, os
-from config import Config, rkn 
+from config import Config, td
 
 # pyrogram imports
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -27,7 +27,7 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             ''.join(["▣" for i in range(math.floor(percentage / 5))]),
             ''.join(["▢" for i in range(20 - math.floor(percentage / 5))])
         )            
-        tmp = progress + rkn.RKN_PROGRESS.format( 
+        tmp = progress + td.TD_PROGRESS.format(
             round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
