@@ -7,20 +7,20 @@ import re, os, time
 id_pattern = re.compile(r'^.\d+$') 
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID", "")) if os.environ.get("API_ID") else ""
-    API_HASH = os.environ.get("API_HASH", "")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
+    API_ID = int(os.environ.get("API_ID", "31819748")) if os.environ.get("API_ID") else ""
+    API_HASH = os.environ.get("API_HASH", "1187ad5f9b4ceac7fa9cfc492040dfee")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8072657598:AAHadERTmGpXrzbgMoKthoC-NhA6ueBiEE0") 
     BOT = None
 
     # premium account string session required 😢 
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
     
     # database config
-    DB_NAME = os.environ.get("DB_NAME","Digital_Rename_Bot")     
-    DB_URL = os.environ.get("DB_URL","")
+    DB_NAME = os.environ.get("DB_NAME","tdanimehub")     
+    DB_URL = os.environ.get("DB_URL","mongodb+srv://tdanimehub_db_user:cPdMT253KSZpE11Z@helper.wallqjf.mongodb.net/?retryWrites=true&w=majority&appName=Helper")
  
     # other configs
-    RKN_PIC = os.environ.get("RKN_PIC", "https://telegra.ph/file/b746aadfe59959eb76f59.jpg")
+    START_PIC = os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg")
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6705898491').split()]
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002123429361"))
 
@@ -60,7 +60,7 @@ class Config(object):
     PORT = int(os.environ.get("PORT", "8080"))
     BOT_UPTIME = time.time()
 
-class rkn(object):
+class start(object):
     # part of text configuration
     START_TXT = """<b>Ｈ𝙰𝙸, {}👋
 
@@ -207,7 +207,7 @@ Exᴀᴍᴩʟᴇ:- `/set_prefix @TDBotDevZ`
 📥 Fᴏʀ Hᴇʟᴘ Cᴏɴᴛ. @TDBotDevZ
 """
     
-    RKN_PROGRESS = """<b>
+    FILE_PROGRESS = """<b>
 ╭━━━━━━━━◉🚀◉━━━━━━━━╮
 ┃   𝗙𝗜𝗟𝗘 𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚...❱━➣  
 ┣━━━━━━━━━━━━━━━━━━━━╯
