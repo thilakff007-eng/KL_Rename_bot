@@ -76,17 +76,20 @@ def convert(seconds):
 
 async def send_log(b, u):
     if Config.LOG_CHANNEL:
-        curr = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-        log_message = (
-            "**--Nᴇᴡ Uꜱᴇʀ Sᴛᴀʀᴛᴇᴅ Tʜᴇ Bᴏᴛ--**\n\n"
-            f"Uꜱᴇʀ: {u.mention}\n"
-            f"Iᴅ: `{u.id}`\n"
-            f"Uɴ: @{u.username}\n\n"
-            f"Dᴀᴛᴇ: {curr.strftime('%d %B, %Y')}\n"
-            f"Tɪᴍᴇ: {curr.strftime('%I:%M:%S %p')}\n\n"
-            f"By: {b.mention}"
-        )
-        await b.send_message(Config.LOG_CHANNEL, log_message)
+        try:
+            curr = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+            log_message = (
+                "**--Nᴇᴡ Uꜱᴇʀ Sᴛᴀʀᴛᴇᴅ Tʜᴇ Bᴏᴛ--**\n\n"
+                f"Uꜱᴇʀ: {u.mention}\n"
+                f"Iᴅ: `{u.id}`\n"
+                f"Uɴ: @{u.username}\n\n"
+                f"Dᴀᴛᴇ: {curr.strftime('%d %B, %Y')}\n"
+                f"Tɪᴍᴇ: {curr.strftime('%I:%M:%S %p')}\n\n"
+                f"By: {b.mention}"
+            )
+            await b.send_message(Config.LOG_CHANNEL, log_message)
+        except Exception as e:
+            print(f"Error sending log to channel: {e}")
 
 async def get_seconds_first(time_string):
     conversion_factors = {

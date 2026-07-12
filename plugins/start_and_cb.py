@@ -18,13 +18,13 @@ from plugins import __version__ as _bot_version_, __developer__, __database__, _
 from plugins.file_rename import upload_doc
 
 upgrade_button = InlineKeyboardMarkup([[        
-        InlineKeyboardButton('buy premium ✓', user_id=int(6705898491)),
+        InlineKeyboardButton('buy premium ✓', url="https://t.me/TDBotDevZ"),
          ],[
         InlineKeyboardButton("Bᴀᴄᴋ", callback_data = "start")
 ]])
 
 upgrade_trial_button = InlineKeyboardMarkup([[        
-        InlineKeyboardButton('buy premium ✓', user_id=int(6705898491)),
+        InlineKeyboardButton('buy premium ✓', url="https://t.me/TDBotDevZ"),
          ],[
         InlineKeyboardButton("ᴛʀɪᴀʟ - 𝟷𝟸 ʜᴏᴜʀs ✓", callback_data = "give_trial"),
         InlineKeyboardButton("Bᴀᴄᴋ", callback_data = "start")
