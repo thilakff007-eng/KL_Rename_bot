@@ -209,7 +209,7 @@ Exᴀᴍᴩʟᴇ:- `/set_prefix @TDBotDevZ`
     
     RKN_PROGRESS = """<b>
 ╭━━━━━━━━◉🚀◉━━━━━━━━╮
-┃   𝗥𝗞𝗡 𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚...❱━➣  
+┃   𝗙𝗜𝗟𝗘 𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚...❱━➣  
 ┣━━━━━━━━━━━━━━━━━━━━╯
 ┣⪼ 📦 𝗦𝗜𝗭𝗘: {1} | {2}
 ┣⪼ 📊 𝗗𝗢𝗡𝗘: {0}%
@@ -217,3 +217,8 @@ Exᴀᴍᴩʟᴇ:- `/set_prefix @TDBotDevZ`
 ┣⪼ ⏰ 𝗘𝗧𝗔: {4}
 ╰━━━━━━━━◉🔥◉━━━━━━━━╯</b>"""
 
+#========================================================================
+# Don't Remove Credit Tg - @TDBotDev
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@TDBotDev
+# Ask Doubt on telegram https://t.me/TDBotDev
+#========================================================================
