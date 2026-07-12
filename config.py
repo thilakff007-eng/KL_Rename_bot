@@ -25,8 +25,11 @@ class Config(object):
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '7731989008').split()]
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002123429361"))
 
-    # free upload limit 
-    FREE_UPLOAD_LIMIT = 6442450944 # calculation 6*1024*1024*1024=results
+    # upload limits config
+    FREE_UPLOAD_LIMIT = 2147483648      # Free Users (2 GiB)
+    PRO_UPLOAD_LIMIT = 2147483648       # Pro Users (2 GiB)
+    ULTRAPRO_UPLOAD_LIMIT = 4294967296  # UltraPro Users (4 GiB)
+    OWNER_UPLOAD_LIMIT = 6442450944     # Owner/Admin (6 GiB)
 
     BOT_COMMANDS = [
         ("start", "Start the bot 🚀"),

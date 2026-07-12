@@ -311,6 +311,25 @@ class Database:
         if user:
             return user.get(key, default)
         return default
+
+    async def get_user_upload_limit(self, user_id):
+        """
+        Centralized helper function to automatically detect the user's plan and return the correct limit:
+        - Owner/Admin -> OWNER_UPLOAD_LIMIT (6 GiB)
+        - UltraPro -> ULTRAPRO_UPLOAD_LIMIT (4 GiB)
+        - Pro -> PRO_UPLOAD_LIMIT (2 GiB)
+        - Free -> FREE_UPLOAD_LIMIT (2 GiB)
+        """
+        if int(user_id) in Config.ADMIN:
+            return Config.OWNER_UPLOAD_LIMIT
+
+        plan_type, max_upload_size, expiry_time = await self.get_premium_plan_and_limit(user_id)
+        if plan_type == "Pro":
+            return Config.PRO_UPLOAD_LIMIT
+        elif plan_type == "UltraPro":
+            return Config.ULTRAPRO_UPLOAD_LIMIT
+        else:
+            return Config.FREE_UPLOAD_LIMIT
         
 digital_botz = Database(Config.DB_URL, Config.DB_NAME)
 

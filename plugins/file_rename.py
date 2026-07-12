@@ -42,21 +42,20 @@ async def rename_start(client, message):
     dcid = FileId.decode(td_file.file_id).dc_id
     extension_type = mime_type.split('/')[0]
 
-    # Fetch user plan and limits dynamically
+    # CENTRALIZED USER UPLOAD LIMIT CHECK (AUTOMATICALLY DETECTS PLAN / OWNER STATUS)
+    user_upload_limit = await digital_botz.get_user_upload_limit(user_id)
+    if td_file.file_size > user_upload_limit:
+        if user_upload_limit == Config.FREE_UPLOAD_LIMIT or user_upload_limit == Config.PRO_UPLOAD_LIMIT:
+            return await message.reply_text("⚠ Upgrade to UltraPro for files larger than 2GB.")
+        elif user_upload_limit == Config.ULTRAPRO_UPLOAD_LIMIT:
+            return await message.reply_text("⚠ UltraPro supports files up to 4GB.")
+        else:
+            return await message.reply_text("⚠ This file exceeds the maximum allowed upload limit of 6GB.")
+
+    # Fetch user plan and limits dynamically for daily upload limits
     plan_type, max_upload_size, expiry_time = await digital_botz.get_premium_plan_and_limit(user_id)
     if not client.premium:
         plan_type = "Free"
-
-    # PREMIUM FEATURES SINGLE FILE SIZE CHECK
-    if plan_type == "Pro":
-        if td_file.file_size > 2 * 1024 * 1024 * 1024: # 2GB
-            return await message.reply_text("⚠ Upgrade to UltraPro for files larger than 2GB.")
-    elif plan_type == "UltraPro":
-        if td_file.file_size > 4 * 1024 * 1024 * 1024: # 4GB
-            return await message.reply_text("⚠ UltraPro supports files up to 4GB.")
-    else: # Free user
-        if td_file.file_size > 2 * 1024 * 1024 * 1024: # 2GB limit for free
-            return await message.reply_text("⚠ Free plan only supports files up to 2GB. Please upgrade to Pro or UltraPro. /plans")
 
     if client.premium and client.uploadlimit and plan_type != "Free":
         await digital_botz.reset_uploadlimit_access(user_id)
@@ -70,7 +69,7 @@ async def rename_start(client, message):
          
     if plan_type != "Free" and client.premium:
         if not Config.STRING_SESSION:
-            if td_file.file_size > 2000 * 1024 * 1024:
+            if td_file.file_size > Config.FREE_UPLOAD_LIMIT:
                  return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
 
         try:
@@ -313,7 +312,7 @@ async def upload_doc(bot, update):
     # Use the correct file path based on metadata mode
     final_file_path = metadata_path if metadata_mode and os.path.exists(metadata_path) else file_path
     
-    if media.file_size > 2000 * 1024 * 1024:
+    if media.file_size > Config.FREE_UPLOAD_LIMIT:
         # Upload file using unified function for large files
         filw, error = await upload_files(
             app, Config.LOG_CHANNEL, upload_type, final_file_path, 
