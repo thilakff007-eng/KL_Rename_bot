@@ -155,19 +155,15 @@ YouTube : https://youtube.com/@TDBotDev
 <p align="center">
 
 <a href="https://youtube.com/@TDBotDev">
-  <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" width="55"/>
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" width="45">
 </a>
-
-&nbsp;&nbsp;&nbsp;
 
 <a href="https://t.me/TDBotDevZ">
-  <img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" width="55"/>
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" width="45">
 </a>
 
-&nbsp;&nbsp;&nbsp;
-
 <a href="https://www.instagram.com/tdbotdev?igsh=c3Z1dGszZThqY3pv">
-  <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" width="55"/>
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" width="45">
 </a>
 
 </p>
