@@ -149,9 +149,20 @@ If you like this project don't forget to Star the repository.
 Telegram
 https://t.me/TDBotDevZ
 
-<p align="center">
-  <a href="https://youtube.com/@TDBotDev">
-    <img src="https://img.shields.io/badge/Subscribe%20on-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white">
-  </a>
-</p>
+YouTube : https://youtube.com/@TDBotDev
 
+<p align="center">
+
+<a href="https://youtube.com/@TDBotDev">
+  <img src="https://img.shields.io/badge/YouTube-TDBotDev-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
+</a>
+
+<a href="https://t.me/TDBotDevZ">
+  <img src="https://img.shields.io/badge/Telegram-TDBotDevZ-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+</a>
+
+<a href="https://www.instagram.com/tdbotdev?igsh=c3Z1dGszZThqY3pv">
+  <img src="https://img.shields.io/badge/Instagram-TDBotDev-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
+</a>
+
+</p>
