@@ -171,6 +171,10 @@ async def add_premium_flow(client: Client, message: Message, user_id: int):
 # ==========================================
 @Client.on_callback_query(filters.regex("^addprem_plan#"))
 async def cb_add_premium_save(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     _, user_id_str, seconds_str, duration_str, plan_type = query.data.split("#")
     user_id = int(user_id_str)
     seconds = int(seconds_str)
@@ -272,6 +276,10 @@ async def remove_premium_flow(client: Client, message: Message, user_id: int):
 
 @Client.on_callback_query(filters.regex("^remprem_conf#"))
 async def cb_remove_premium_confirm(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     _, user_id_str, choice = query.data.split("#")
     user_id = int(user_id_str)
 
@@ -412,6 +420,10 @@ async def show_premium_menu(client: Client, chat_id, is_callback=True, query: Ca
 
 @Client.on_callback_query(filters.regex("^admin_"))
 async def cb_admin_panel_dispatcher(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     data = query.data
     user_id = query.from_user.id
 
@@ -419,7 +431,6 @@ async def cb_admin_panel_dispatcher(client: Client, query: CallbackQuery):
         return await query.answer("Access Denied ❌", show_alert=True)
 
     if data == "admin_refresh_prem":
-        await query.answer("Refreshed stats!")
         return await show_premium_menu(client, query.message.chat.id, is_callback=True, query=query)
 
     elif data == "admin_stats_prem":

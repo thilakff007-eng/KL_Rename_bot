@@ -174,6 +174,10 @@ async def handle_toggle_settings(client: Client, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("^set_text#"))
 async def handle_text_settings(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     _, key = query.data.split("#")
     user_id = query.from_user.id
     display_name = key.replace("_", " ").title()
@@ -264,11 +268,19 @@ async def handle_clear_val(client: Client, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("^settings_back$"))
 async def handle_back_settings(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     user_id = query.from_user.id
     await show_settings_main(client, query.message.chat.id, user_id, is_callback=True, query=query)
 
 @Client.on_callback_query(filters.regex("^settings_features$"))
 async def show_detected_features(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     user_cmds, admin_cmds = discover_bot_features(client)
 
     text = (
@@ -286,6 +298,10 @@ async def show_detected_features(client: Client, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("^settings_admin$"))
 async def show_admin_settings(client: Client, query: CallbackQuery):
+    try:
+        await query.answer()
+    except Exception:
+        pass
     user_id = query.from_user.id
     if user_id not in Config.ADMIN:
         return await query.answer("Access Denied ❌ Only admins can access global configurations.", show_alert=True)

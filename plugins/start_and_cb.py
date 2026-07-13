@@ -124,6 +124,11 @@ async def plans(client, message):
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data 
+    try:
+        await query.answer()
+    except Exception:
+        pass
+
     if data == "start":
         start_button = [[        
         InlineKeyboardButton('Uᴩᴅᴀ𝚃ᴇꜱ', url='https://t.me/TDBotDevZ'),
@@ -287,8 +292,11 @@ async def cb_handler(client, query: CallbackQuery):
         try:
             await query.message.delete()
             await query.message.reply_to_message.delete()
-            await query.message.continue_propagation()
+            await query.continue_propagation()
         except:
             await query.message.delete()
-            await query.message.continue_propagation()
+            await query.continue_propagation()
+
+    else:
+        await query.continue_propagation()
 
