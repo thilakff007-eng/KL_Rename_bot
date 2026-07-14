@@ -7,9 +7,9 @@ import re, os, time
 id_pattern = re.compile(r'^.\d+$') 
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID", "31819748")) # Teligram Api id : https://youtu.be/L5DDah6WhIM
-    API_HASH = os.environ.get("API_HASH", "1187ad5f9b4ceac7fa9cfc492040dfee") #Teligram Api hash : https://youtu.be/L5DDah6WhIM
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8072657598:AAHadERTmGpXrzbgMoKthoC-NhA6ueBiEE0") #Teligram Bot Token: https://youtu.be/tqV2jH5YWFY
+    API_ID = int(os.environ.get("API_ID", "31818")) # Teligram Api id : https://youtu.be/L5DDah6WhIM
+    API_HASH = os.environ.get("API_HASH", "1187adcfc492040dfee") #Teligram Api hash : https://youtu.be/L5DDah6WhIM
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8072TmGpXrzbgMoKthoC-NhA6ueBiEE0") #Teligram Bot Token: https://youtu.be/tqV2jH5YWFY
     BOT = None
 
     # premium account string session required 😢 
@@ -17,7 +17,7 @@ class Config(object):
     
     # database config
     DB_NAME = os.environ.get("DB_NAME","tdanimehub") # Mango db name : https://youtu.be/Cp_p9DtrWAw
-    DB_URL = os.environ.get("DB_URL","mongodb+srv://tdanimehub_db_user:cPdMT253KSZpE11Z@helper.wallqjf.mongodb.net/?retryWrites=true&w=majority&appName=Helper")
+    DB_URL = os.environ.get("DB_URL","mongodb+srv://KSZpE11Z@helper.wallqjf.mongodb.net/?retryWrites=true&w=majorName=Helper")
  
     # other configs
     TD_PIC = os.environ.get("TD_PIC", os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg"))
