@@ -4,7 +4,7 @@
 # Ask Doubt on Telegram https://t.me/TDBotDevZ
 #========================================================================
 import re, os, time
-id_pattern = re.compile(r'^.\d+) 
+id_pattern = re.compile(r'^\d+$')
 
 class Config(object):
     API_ID = int(os.environ.get("API_ID", "34822566")) # Teligram Api id : https://youtu.be/L5DDah6WhIM
