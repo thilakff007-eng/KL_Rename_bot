@@ -7,23 +7,23 @@ import re, os, time
 id_pattern = re.compile(r'^.\d+$') 
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID", "3181727")) # Teligram Api id : https://youtu.be/L5DDah6WhIM
-    API_HASH = os.environ.get("API_HASH", "1187ad5f9b4ceac7fa9cfc") #Teligram Api hash : https://youtu.be/L5DDah6WhIM
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "807298:AAHadERTmKthoC-NhA6ueBiEE0") #Teligram Bot Token: https://youtu.be/tqV2jH5YWFY
+    API_ID = int(os.environ.get("API_ID", "34822566")) # Teligram Api id : https://youtu.be/L5DDah6WhIM
+    API_HASH = os.environ.get("API_HASH", "3ab7815d50c6baec0e564742eee75b33") #Teligram Api hash : https://youtu.be/L5DDah6WhIM
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8847134520:AAFc6DAGL0YmTZVTYoRbOhFB5zeth7ERF-E") #Teligram Bot Token: https://youtu.be/tqV2jH5YWFY
     BOT = None
 
     # premium account string session required 😢 
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
     
     # database config
-    DB_NAME = os.environ.get("DB_NAME","tdanimehub") # Mango db name & db Url: https://youtu.be/Cp_p9DtrWAw
-    DB_URL = os.environ.get("DB_URL","mongodb+srv://tdanimehubuser:ZpE11Z@helper.wallqjf.mob.ntryWrites=true&w=majority&appName=Helper")
+    DB_NAME = os.environ.get("DB_NAME","thilakff007") # Mango db name & db Url: https://youtu.be/Cp_p9DtrWAw
+    DB_URL = os.environ.get("DB_URL","mongodb+srv://thilakff007:0U8T4Aiaoqmje2UD@shadow.vetq4tn.mongodb.net/?appName=Shadow")
  
     # other configs
     TD_PIC = os.environ.get("TD_PIC", os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg"))
     START_PIC = TD_PIC
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '7731989008').split()]
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002123429361"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1003580590124"))
 
     # upload limits config
     FREE_UPLOAD_LIMIT = 2147483648      # Free Users (2 GiB)
