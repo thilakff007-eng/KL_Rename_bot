@@ -22,7 +22,7 @@ class Config(object):
     # other configs
     TD_PIC = os.environ.get("TD_PIC", os.environ.get("START_PIC", "https://files.catbox.moe/hu611s.jpg"))
     START_PIC = TD_PIC
-    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '7731989008').split()]
+    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '7560349494').split()]
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1003580590124"))
 
     # upload limits config
@@ -66,7 +66,7 @@ class Config(object):
     try:
         FORCE_SUB = int(os.environ.get("FORCE_SUB", "")) 
     except:
-        FORCE_SUB = os.environ.get("FORCE_SUB", "TDBotDevZ")
+        FORCE_SUB = os.environ.get("FORCE_SUB", "Animeworld_07")
         
     # wes response configuration     
     PORT = int(os.environ.get("PORT", "8080"))
